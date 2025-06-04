@@ -1,0 +1,88 @@
+<section class="grid">
+  <!-- placeholder gør at der er et eksempel i boksen, inden man skriver noget -->
+  <!-- required gør at fæltet skal udfyldes -->
+  <!-- email gør at der skal være et @ når man udfylder -->
+  <!-- <input type="tel" /> tel bruges til telefonnumre -->
+  <!-- <input type="date" /> date bruges til datoer/fødselsdage m.m. -->
+  <form class="flex">
+    <div class="flex">
+      <label for="fullname">FULL NAME</label>
+      <input id="fullname" type="text" name="fullname" required />
+    </div>
+    <div class="flex">
+      <label for="email">EMAIL</label>
+      <input id="email" type="email" name="email" required />
+    </div>
+    <div class="flex">
+      <label for="djprod">ARE YOU A DJ, PRODUCER OR BOTH?</label>
+      <select id="djprod" name="djprod">
+        <option value="dj">DJ</option>
+        <option value="producer">PRODUCER</option>
+        <option value="both">BOTH</option>
+      </select>
+    </div>
+    <div class="flex">
+      <label for="about">A LITTLE ABOUT YOURSELF</label>
+      <input id="about" type="text" name="about" required />
+    </div>
+    <div class="flex">
+      <label for="work"
+        >A LINK TO SOME OF YOUR RECENT WORK (SOUNDCLOUD, BEATCLOUD, YOUTUBE
+        ECT.)</label
+      >
+      <input id="work" type="text" name="work" required />
+    </div>
+    <div class="flex">
+      <label for="some">SOCIAL MEDIA HANDLE</label>
+      <select id="some" name="some">
+        <option value="instagram">INSTAGRAM</option>
+        <option value="tiktok">TIK TOK</option>
+        <option value="facebook">FACEBOOK</option>
+      </select>
+      <input id="some" type="text" name="some" required />
+    </div>
+    <!-- det øverste labels 'for' gør de hænger sammen, hvis man bruger 'name' som det samme i input -->
+    <div class="radio">
+      <label for="djevents"
+        >WOULD YOU LIKE TO BE CONTACTED ABOUT PLAYING AT A FUTURE SOUNDCONNECTS
+        EVENT?</label
+      >
+      <div>
+        <label for="djyes">YES</label>
+        <input id="djyes" type="radio" name="djevents" value="yes" />
+
+        <label for="djno">NO</label>
+        <input id="djno" type="radio" name="djevents" value="no" />
+      </div>
+    </div>
+    <div class="flex">
+      <label for="workshop"
+        >WOULD YOU LIKE TO TEACH AT A FUTURE SOUNDCONNECTS WORKSHOP</label
+      >
+      <select id="workshop" name="workshop">
+        <option value="djworkshop">DJ WORKSHOP</option>
+        <option value="djworkshop">PRODUCER WORKSHOP</option>
+        <option value="bothworkshops">BOTH</option>
+        <option value="bothworkshops">NO</option>
+      </select>
+    </div>
+
+    <style>
+      section {
+        grid-column: 1/2;
+        grid-row: 2/3;
+      }
+      form {
+        flex-direction: column;
+      }
+      div {
+        flex-direction: column;
+      }
+      label {
+        color: var(--white);
+      }
+      .radio {
+      }
+    </style>
+  </form>
+</section>

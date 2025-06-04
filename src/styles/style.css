@@ -47,7 +47,8 @@ h3 {
   font-weight: 100;
 }
 
-h4 {
+h4,
+label {
   font-family: "Inconsolata", monospace;
   font-weight: 500;
   font-size: 16px;

@@ -7,13 +7,39 @@ import Menu from "../components/Menu.astro";
 import Footer from "../components/Footer.astro";
 import OpenCallHero from "../components/OpenCallHero.astro";
 import OpenCallForm from "../components/OpenCallForm.astro";
+import formbg from "../assets/form-bg.webp";
 ---
 
 <Layout title="SoundConnects">
   <main class="grid">
+    <div>
+      <img class="img1" src={formbg.src} alt="2 people djing" />
+      <img class="img2" src={formbg.src} alt="2 people djing" />
+    </div>
     <Menu color="yellow" />
     <OpenCallHero />
     <OpenCallForm />
     <Footer background="gray" />
   </main>
 </Layout>
+
+<style>
+  main {
+  }
+  div {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    grid-column: 1/2;
+    grid-row: 1/3;
+    z-index: -5;
+  }
+  img {
+    width: 200%;
+    object-fit: cover;
+  }
+
+  .img2 {
+    rotate: 180deg;
+  }
+</style>

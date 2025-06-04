@@ -1,0 +1,52 @@
+---
+import arrow3 from "../assets/arrow3.svg";
+---
+
+<section class="grid">
+  <h1 class="h11">OPEN</h1>
+  <h1 class="h12">DJ CALL</h1>
+  <h2>JUST TYPE IN YOUR INFO</h2>
+  <img class="arrow" src={arrow3.src} alt="arrow pointing down" />
+</section>
+
+<style>
+  section {
+    height: 500px;
+    width: auto;
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  h1,
+  h2 {
+    color: var(--white);
+    grid-column: 1/2;
+  }
+  h1 {
+    font-size: 55px;
+  }
+  .h11 {
+    grid-row: 1/2;
+    margin-top: 20px;
+    justify-self: start;
+  }
+  .h12 {
+    grid-row: 2/3;
+    margin-top: 100px;
+    justify-self: end;
+  }
+  h2 {
+    font-size: 26px;
+    grid-row: 3/4;
+    margin-top: 115px;
+    justify-self: center;
+  }
+  .arrow {
+    height: 50px;
+    width: auto;
+    grid-column: 1/2;
+    grid-row: 4/5;
+    justify-self: end;
+    margin-top: 10px;
+    margin-right: 50px;
+  }
+</style>
