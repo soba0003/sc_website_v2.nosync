@@ -1,0 +1,167 @@
+---
+import instaplaceholder from "../assets/insta-placeholder.png";
+import arrow2 from "../assets/arrow2.svg";
+const { singleEvent } = Astro.props;
+---
+
+<section class="grid">
+  <div class="grid imgbox">
+    <img src={instaplaceholder.src} alt="" />
+    <a class="arrowlink" href="../../../events">
+      <img class="arrow" src={arrow2.src} alt="go back arrow" />
+    </a>
+  </div>
+  <article>
+    <h2>{singleEvent.name}</h2>
+    <div class="info grid">
+      <h3>{singleEvent.date}</h3>
+      <p class="time">TIME: {singleEvent.time}</p>
+      <p class="adress">ADRESS: {singleEvent.venue}</p>
+      <a class="" href={singleEvent.adresslink}>{singleEvent.adress}</a>
+      <!-- {singleEvent.maps} virker ikke -->
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2250.2467850138346!2d12.558641675952984!3d55.667308598573996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4652537235b81e65%3A0x6c2aea3f7ce79666!2sJolene%20Bar!5e0!3m2!1sda!2sdk!4v1747840131720!5m2!1sda!2sdk"
+        width="600"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <p class="price">{singleEvent.price}</p>
+      <p class="age">{singleEvent.age}</p>
+    </div>
+    <h4>{singleEvent.longdescription}</h4>
+    <p class="details">{singleEvent.details}</p>
+  </article>
+</section>
+
+<style>
+  section {
+    margin-bottom: 20px;
+  }
+  img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    width: 100vw;
+    height: auto;
+  }
+  .arrow {
+    width: 40px;
+    height: auto;
+  }
+  .arrowlink {
+    padding: 10px 5px;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    place-self: start;
+    z-index: 10;
+    position: fixed;
+  }
+  h2 {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    color: var(--orange);
+    font-size: 13cqw;
+    text-align: center;
+    margin: 10px 0 20px 0;
+    text-transform: uppercase;
+  }
+  h4 {
+    font-weight: 400;
+  }
+  h4,
+  .details {
+    color: var(--white);
+    padding: 20px 0px 10px 5px;
+  }
+  .info {
+    background-color: var(--yellow);
+    color: var(--black);
+    width: 160px;
+    height: auto;
+    padding: 5px;
+    float: right;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+  h3 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    font-size: 34px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .time {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  .adress {
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
+  a {
+    color: var(--black);
+    font-family: "Inconsolata", monospace;
+    font-weight: 300;
+    font-size: 15px;
+    grid-column: 1/2;
+    grid-row: 4/5;
+    margin-bottom: 10px;
+  }
+  iframe {
+    width: 150px;
+    height: 140px;
+    grid-column: 1/2;
+    grid-row: 5/6;
+    justify-self: center;
+    margin-bottom: 10px;
+  }
+  .price {
+    grid-column: 1/2;
+    grid-row: 6/7;
+  }
+  .age {
+    grid-column: 1/2;
+    grid-row: 7/8;
+    margin-bottom: 100px;
+  }
+  @media (min-width: 600px) {
+    section {
+      grid-template-columns: 50vw 50vw;
+    }
+    .imgbox {
+      grid-column: 1/2;
+      grid-row: 1/2;
+    }
+    img {
+      grid-column: 1/2;
+      grid-row: 1/2;
+      width: 50vw;
+      height: auto;
+      justify-self: center;
+    }
+    .arrow {
+      width: 55px;
+      height: auto;
+    }
+    .arrowlink {
+      padding: 10px;
+    }
+    h2 {
+      font-size: 5.4cqw;
+      text-align: start;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      padding-left: 5px;
+    }
+    .info {
+      margin-left: 30px;
+      margin-bottom: 20px;
+    }
+    article {
+      padding-bottom: 100px;
+    }
+  }
+</style>

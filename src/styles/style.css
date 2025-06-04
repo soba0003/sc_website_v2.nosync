@@ -1,0 +1,78 @@
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0px 0px;
+}
+
+/* root */
+:root {
+  --yellow: #f4e56b;
+  --orange: #ff8000;
+  --pink: #ff45b4;
+  --gray: #1c1c1c;
+  --white: #ffffff;
+  --black: #000000;
+  background-color: #1c1c1c;
+
+  --bar-width: 46px;
+  --bar-height: 2px;
+  --burger-gap: 10px;
+  --animation-timing: 200ms ease-in-out;
+  --x-width: 40px;
+}
+
+/* fonts */
+
+h1 {
+  font-family: "Boldonse", sans-serif;
+  font-weight: 100;
+  font-size: 35px;
+}
+
+h2 {
+  font-family: "Jersey 25", sans-serif;
+  font-size: 18px;
+}
+
+h3 {
+  font-family: "lisbeth-display", sans-serif;
+  font-weight: 100;
+}
+
+h4 {
+  font-family: "Inconsolata", monospace;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+p {
+  font-family: "Inconsolata", monospace;
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.noline {
+  text-decoration: none;
+}
+
+/* layout */
+
+.grid {
+  display: grid;
+}
+
+.gridcenter {
+  place-self: center;
+}
+
+.flex {
+  display: flex;
+}

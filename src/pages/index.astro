@@ -1,0 +1,57 @@
+---
+//@ts-nocheck
+// tjekker ikke for notescript fejl så
+import "../styles/style.css";
+import Layout from "../layouts/Layout.astro";
+import Menu from "../components/Menu.astro";
+import IndexLinks from "../components/IndexLinks.astro";
+import IndexEvents from "../components/IndexEvents.astro";
+import Event from "../components/Event.astro";
+import bluetexture from "../assets/blue-texture.webp";
+import Footer from "../components/Footer.astro";
+
+const url = "https://giuqkiysxqqukuiwzihv.supabase.co/rest/v1/events";
+const key =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdpdXFraXlzeHFxdWt1aXd6aWh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc1MDQ5MTAsImV4cCI6MjA2MzA4MDkxMH0.TREktbVlzVz0vGxNlhpw1WytBsYl1oGzxLOssFoTbDs";
+
+// så den kan læse nøglen
+const options = {
+  headers: {
+    apikey: key,
+  },
+};
+
+// console log kan kun læses i terminalen (du skal 'run nmp dev' først)
+const data = await fetch(url, options).then((res) => res.json());
+
+// Sortér events efter dato (tidligste først)
+const sortedEvents = data.sort((a, b) => new Date(a.date) - new Date(b.date));
+console.log(data);
+---
+
+<Layout title="SoundConnects">
+  <main class="grid">
+    <img src={bluetexture.src} alt="dark blue sand/texture" />
+    <Menu color="yellow" />
+    <IndexLinks />
+    <IndexEvents>
+      {data.slice(0, 3).map((event) => <Event {event} />)}
+    </IndexEvents>
+    <Footer background="blue" />
+  </main>
+</Layout>
+
+<style>
+  img {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+  }
+  div {
+    height: 200px;
+    width: 100%;
+    color: var(--grey);
+  }
+</style>

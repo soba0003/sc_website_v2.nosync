@@ -1,0 +1,154 @@
+---
+const { color } = Astro.props;
+import instagram from "../assets/instagram.svg";
+import facebook from "../assets/facebook.svg";
+---
+
+<label class=`burger ${color}`>
+  <input type="checkbox" />
+  <div>MENU</div>
+</label>
+<!-- aside bliver her kun brugt for a11y -->
+<aside class=`sidebar ${color}`>
+  <nav>
+    <a href="../.">MAIN PAGE</a>
+    <a href="../about">ABOUT</a>
+    <a href="../events">EVENTS</a>
+    <a href="../dj-pool">DJ POOL</a>
+    <a href="">OPEN DJ CALL</a>
+    <a href="">CONTACT</a>
+    <div class="flex some">
+      <a href="https://www.instagram.com/soundconnects_cph/">
+        <img src={instagram.src} alt="instagram logo" />
+      </a>
+      <a href="https://www.facebook.com/SoundConnects/">
+        <img src={facebook.src} alt="facebook logo" />
+      </a>
+    </div>
+  </nav>
+</aside>
+
+<style>
+  .burger {
+    padding: 15px 12px 14px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--burger-gap);
+    width: max-content;
+    justify-self: end;
+    position: fixed;
+    z-index: 100;
+    /* gør man kan se at man kan klikke på den */
+    cursor: pointer;
+    /* position: sticky; */
+    top: 0;
+    right: 0;
+  }
+  .burger::before,
+  .burger input {
+    /* content giver before og efter elementerne indhold, så man kan se dem på skærmen */
+    content: "";
+    width: var(--bar-width);
+    height: var(--bar-height);
+    background-color: var(--gray);
+  }
+
+  .burger::before,
+  .burger input,
+  div {
+    transform-origin: left center;
+    transition:
+      opacity var(--animation-timing),
+      width var(--animation-timing),
+      translate var(--animation-timing),
+      rotate var(--animation-timing);
+  }
+
+  .burger input {
+    appearance: none;
+    outline: none;
+    pointer-events: none;
+  }
+
+  div {
+    font-family: "Inconsolata", monospace;
+    font-weight: 400;
+    font-size: 21px;
+    letter-spacing: 1.54px;
+    text-align: center;
+    margin-top: -6px;
+  }
+
+  .burger:has(input:checked) div {
+    opacity: 0;
+    width: 0;
+  }
+  /* den kigger på om burger har en input indeni sig der er checked, hvis ja, så vælger den :before */
+  .burger:has(input:checked)::before {
+    rotate: 45deg;
+    width: var(--x-width);
+    translate: 0;
+  }
+
+  .burger:has(input:checked) input {
+    rotate: -45deg;
+    width: var(--x-width);
+    translate: 0 16px;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .sidebar {
+    justify-self: end;
+    position: fixed;
+    z-index: 50;
+    transition: translate var(--animation-timing);
+    translate: +100%;
+    padding: 90px 10px 0 18px;
+    width: 220px;
+    min-height: 60vh;
+    top: 0;
+    right: 0;
+  }
+  a {
+    font-family: "Inconsolata", monospace;
+    font-weight: 300;
+    font-size: 28px;
+    color: var(--gray);
+    text-decoration: none;
+  }
+  a:hover {
+    font-weight: 600;
+  }
+
+  /* + vælger noget udenfor burger, men tjekker stadig om input er checked */
+  .burger:has(input:checked) + .sidebar {
+    translate: 0;
+  }
+  img {
+    width: 25px;
+    height: auto;
+  }
+  .some {
+    margin-top: 20px;
+    gap: 10px;
+  }
+  .yellow {
+    background-color: var(--yellow);
+  }
+  .orange {
+    background-color: var(--orange);
+  }
+
+  @media (max-width: 600px) {
+    .burger,
+    .sidebar {
+      right: 0;
+      left: auto;
+    }
+  }
+</style>

@@ -1,0 +1,123 @@
+---
+import ocean1 from "../assets/ocean1.webp";
+import starimg from "../assets/star-img.webp";
+---
+
+<section class="grid">
+  <img class="ocean" src={ocean1.src} alt="deep blue ocean" />
+  <img
+    class="star"
+    src={starimg.src}
+    alt="2 people djing, placed inside star border"
+  />
+  <div class="grid h1box">
+    <h1 class="h11">WANT</h1>
+    <h1 class="h12">TO</h1>
+    <h1 class="h13">KNOW</h1>
+    <h1 class="h14">OUR</h1>
+    <h1 class="h15">DJ'S?</h1>
+    <slot />
+  </div>
+</section>
+
+<style>
+  section {
+    margin-bottom: 70px;
+  }
+  .ocean {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  .star {
+    width: auto;
+    height: 400px;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    justify-self: center;
+    margin-left: 70px;
+    margin-top: 70px;
+    overflow: hidden;
+  }
+  h1 {
+    color: var(--white);
+    font-size: 40px;
+  }
+
+  .h1box {
+    margin-top: 70px;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 49px 49px 190px 230px;
+  }
+  .h11 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  .h12 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    justify-self: end;
+  }
+  .h13 {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  .h14 {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    justify-self: end;
+  }
+  .h15 {
+    grid-column: 2/3;
+    grid-row: 3/4;
+    place-self: end;
+  }
+  @media (min-width: 1000px) {
+    section {
+      margin-bottom: 110px;
+    }
+    .ocean {
+      height: 900px;
+    }
+    .star {
+      height: 700px;
+      justify-self: end;
+    }
+    h1 {
+      font-size: 70px;
+    }
+    .h1box {
+      grid-column: 1/2;
+      grid-row: 1/2;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 100px 100px 190px 230px;
+    }
+    .h11 {
+      grid-column: 1/2;
+      grid-row: 1/2;
+    }
+    .h12 {
+      grid-column: 5/6;
+      grid-row: 1/2;
+      justify-self: start;
+    }
+    .h13 {
+      grid-column: 1/2;
+      grid-row: 2/3;
+    }
+    .h14 {
+      grid-column: 4/5;
+      grid-row: 2/3;
+      justify-self: start;
+    }
+    .h15 {
+      grid-column: 3/4;
+      grid-row: 3/4;
+      place-self: end;
+    }
+  }
+</style>

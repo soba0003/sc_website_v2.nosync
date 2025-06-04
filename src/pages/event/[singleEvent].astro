@@ -1,0 +1,43 @@
+---
+//@ts-nocheck
+// tjekker ikke for notescript fejl så
+import "../../styles/style.css";
+import Layout from "../../layouts/Layout.astro";
+import Menu from "../../components/Menu.astro";
+import SingleEvent from "../../components/SingleEvent.astro";
+import Footer from "../../components/Footer.astro";
+
+// henter alle siderne ind, ud fra hvert 'event' array (burger getStaticPaths, og probs)
+export async function getStaticPaths() {
+  const url = "https://giuqkiysxqqukuiwzihv.supabase.co/rest/v1/events";
+  const key =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdpdXFraXlzeHFxdWt1aXd6aWh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc1MDQ5MTAsImV4cCI6MjA2MzA4MDkxMH0.TREktbVlzVz0vGxNlhpw1WytBsYl1oGzxLOssFoTbDs";
+
+  // så den kan læse nøglen
+  const options = {
+    headers: {
+      apikey: key,
+    },
+  };
+  const response = await fetch(url, options);
+  const data = await response.json();
+
+  // params/props skal være det samme som i mappen event [singleEvent]
+  return data.map((event) => {
+    return {
+      params: { singleEvent: event.id },
+      props: { singleEvent: event },
+    };
+  });
+}
+
+const { singleEvent } = Astro.props;
+---
+
+<Layout title={singleEvent.name}>
+  <main class="grid">
+    <Menu color="orange" />
+    <SingleEvent singleEvent={singleEvent} />
+    <Footer background="blue" />
+  </main>
+</Layout>

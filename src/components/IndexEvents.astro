@@ -1,0 +1,109 @@
+---
+import eventsdoodle from "../assets/events-doodle.svg";
+---
+
+<section class="grid">
+  <h2>SoundConnects</h2>
+  <h1>UPCOMING EVENTS</h1>
+  <h4 class="h41">COPENHAGEN, DENMARK</h4>
+  <div class="slots grid">
+    <slot class="slot" />
+  </div>
+  <h4 class="h42">
+    CHECK OUT THE REST OF OUR
+    <div class="grid">
+      <a class="eventslink noline" href="events">EVENTS</a>
+      <img class="doodle" src={eventsdoodle.src} alt="orange doodle" />
+    </div>
+  </h4>
+</section>
+
+<style>
+  section {
+    padding-top: 10px;
+    gap: 10px;
+  }
+  h1 {
+    color: var(--yellow);
+    text-align: center;
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  h2 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    padding-bottom: 80px;
+  }
+  h2,
+  h4 {
+    color: var(--white);
+    text-align: center;
+  }
+  a {
+    color: var(--white);
+    font-family: "Inconsolata", monospace;
+    font-weight: 900;
+  }
+  a:hover {
+    font-weight: 900;
+  }
+
+  .h41 {
+    grid-column: 1/2;
+    grid-row: 3/4;
+    padding-bottom: 60px;
+  }
+  .slots {
+    grid-column: 1/2;
+    grid-row: 4/5;
+    gap: 30px;
+    padding-bottom: 40px;
+  }
+  .h42 {
+    grid-column: 1/2;
+    grid-row: 5/6;
+    padding-bottom: 40px;
+    font-weight: 400;
+  }
+  .eventslink {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    place-self: center;
+    z-index: 10;
+  }
+  .doodle {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    place-self: center;
+    z-index: 1;
+    width: 55px;
+    height: auto;
+  }
+  @media (min-width: 1000px) {
+    h1 {
+      font-size: 100px;
+    }
+    h2 {
+      font-size: 30px;
+    }
+    h4 {
+      font-size: 22px;
+    }
+    .h41 {
+      padding-bottom: 120px;
+    }
+    .slots {
+      gap: 30px;
+      padding-bottom: 60px;
+    }
+    .h42 {
+      padding-bottom: 120px;
+      font-weight: 400;
+    }
+    a {
+      color: var(--white);
+      font-family: "Inconsolata", monospace;
+      font-weight: 600;
+    }
+  }
+</style>
