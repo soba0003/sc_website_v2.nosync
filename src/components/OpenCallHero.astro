@@ -11,11 +11,12 @@ import arrow3 from "../assets/arrow3.svg";
 
 <style>
   section {
-    height: 550px;
-    width: auto;
     grid-column: 1/2;
     grid-row: 1/2;
+    justify-self: center;
+    width: 100%;
   }
+
   h1,
   h2 {
     color: var(--white);
@@ -39,14 +40,47 @@ import arrow3 from "../assets/arrow3.svg";
     grid-row: 3/4;
     margin-top: 115px;
     justify-self: center;
+    align-self: end;
   }
   .arrow {
     height: 50px;
     width: auto;
     grid-column: 1/2;
     grid-row: 4/5;
-    justify-self: end;
-    margin-top: 10px;
-    margin-right: 50px;
+    justify-self: center;
+    margin-left: 180px;
+  }
+
+  @media (min-width: 400px) {
+    section {
+      padding: 0 10%;
+      height: 90vh;
+    }
+    .h11 {
+      grid-row: 1/2;
+      margin-top: 150px;
+      justify-self: start;
+    }
+    .h12 {
+      grid-row: 2/3;
+      margin-top: 0px;
+      justify-self: end;
+    }
+  }
+  @media (min-width: 850px) {
+    section {
+      padding: 0 15%;
+      height: 95vh;
+    }
+    h1 {
+      font-size: 85px;
+    }
+    .h11 {
+      margin-top: 50px;
+      margin-bottom: -30px;
+    }
+    h2 {
+      font-size: 35px;
+    }
   }
 </style>
