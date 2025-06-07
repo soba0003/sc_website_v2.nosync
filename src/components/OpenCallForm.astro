@@ -5,83 +5,196 @@
   <!-- <input type="tel" /> tel bruges til telefonnumre -->
   <!-- <input type="date" /> date bruges til datoer/fødselsdage m.m. -->
   <form class="flex">
-    <div class="flex">
-      <label for="fullname">FULL NAME</label>
-      <input id="fullname" type="text" name="fullname" required />
+    <div class="grid">
+      <label class="label1" for="fullname">FULL NAME</label>
+      <input
+        class="box input1"
+        id="fullname"
+        type="text"
+        name="fullname"
+        required
+      />
     </div>
-    <div class="flex">
-      <label for="email">EMAIL</label>
-      <input id="email" type="email" name="email" required />
+    <div class="grid">
+      <label class="label2" for="email">EMAIL</label>
+      <input class="box input2" id="email" type="email" name="email" required />
     </div>
-    <div class="flex">
-      <label for="djprod">ARE YOU A DJ, PRODUCER OR BOTH?</label>
-      <select id="djprod" name="djprod">
+    <div class="grid">
+      <label class="label3" for="djprod">ARE YOU A DJ, PRODUCER OR BOTH?</label>
+      <select class="select3" id="djprod" name="djprod">
         <option value="dj">DJ</option>
         <option value="producer">PRODUCER</option>
         <option value="both">BOTH</option>
       </select>
     </div>
-    <div class="flex">
-      <label for="about">A LITTLE ABOUT YOURSELF</label>
-      <input id="about" type="text" name="about" required />
+    <div class="grid">
+      <label class="label4" for="about">A LITTLE ABOUT YOURSELF</label>
+      <input class="box input4" id="about" type="text" name="about" required />
     </div>
-    <div class="flex">
-      <label for="work"
+    <div class="grid">
+      <label class="label5" for="work"
         >A LINK TO SOME OF YOUR RECENT WORK (SOUNDCLOUD, BEATCLOUD, YOUTUBE
         ECT.)</label
       >
-      <input id="work" type="text" name="work" required />
+      <input class="box input5" id="work" type="text" name="work" required />
     </div>
-    <div class="flex">
-      <label for="some">SOCIAL MEDIA HANDLE</label>
-      <select id="some" name="some">
+    <div class="grid">
+      <label class="label6" for="some">SOCIAL MEDIA HANDLE</label>
+      <select class="select6" id="some" name="some">
         <option value="instagram">INSTAGRAM</option>
         <option value="tiktok">TIK TOK</option>
         <option value="facebook">FACEBOOK</option>
       </select>
-      <input id="some" type="text" name="some" required />
+      <input class="box input6" id="some" type="text" name="some" required />
     </div>
     <!-- det øverste labels 'for' gør de hænger sammen, hvis man bruger 'name' som det samme i input -->
-    <div class="radio">
-      <label for="djevents"
+    <div class="grid">
+      <label class="label7" for="djevents"
         >WOULD YOU LIKE TO BE CONTACTED ABOUT PLAYING AT A FUTURE SOUNDCONNECTS
         EVENT?</label
       >
-      <div>
+      <div class="radio7">
         <label for="djyes">YES</label>
-        <input id="djyes" type="radio" name="djevents" value="yes" />
+        <input
+          class="radio"
+          id="djyes"
+          type="radio"
+          name="djevents"
+          value="yes"
+        />
 
         <label for="djno">NO</label>
-        <input id="djno" type="radio" name="djevents" value="no" />
+        <input
+          class="radio"
+          id="djno"
+          type="radio"
+          name="djevents"
+          value="no"
+        />
       </div>
     </div>
-    <div class="flex">
-      <label for="workshop"
+    <div class="grid">
+      <label class="label8" for="workshop"
         >WOULD YOU LIKE TO TEACH AT A FUTURE SOUNDCONNECTS WORKSHOP</label
       >
-      <select id="workshop" name="workshop">
+      <select class="select8" id="workshop" name="workshop">
         <option value="djworkshop">DJ WORKSHOP</option>
         <option value="djworkshop">PRODUCER WORKSHOP</option>
         <option value="bothworkshops">BOTH</option>
         <option value="bothworkshops">NO</option>
       </select>
     </div>
+    <div>
+      <input class="submit" type="submit" value="submit" />
+    </div>
 
     <style>
       section {
         grid-column: 1/2;
         grid-row: 2/3;
+        /* margin-top: -360px; */
       }
       form {
         flex-direction: column;
+        gap: 20px;
+        justify-self: center;
+        align-items: center;
+        max-width: 450px;
+        margin: 0 10px;
       }
       div {
         flex-direction: column;
       }
       label {
         color: var(--white);
+        font-size: 18px;
+      }
+      .box {
+        height: 35px;
+        width: 330px;
+        border-radius: 0%;
+        border: 0px;
+        font-size: 16px;
+        opacity: 0.6;
+      }
+      .box:hover,
+      select:hover {
+        background-color: var(--yellow);
+      }
+
+      select {
+        height: 35px;
+        width: 200px;
+        padding: 0 8px;
+        opacity: 0.8;
+        border-radius: 0%;
+        border: 0;
       }
       .radio {
+        height: 17px;
+        width: 17px;
+        opacity: 0.8;
+      }
+      .label1,
+      .label2,
+      .label3,
+      .label4,
+      .label5,
+      .label7,
+      .label8 {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        justify-self: center;
+        text-align: center;
+        margin-bottom: 3px;
+      }
+      .input1,
+      .input2,
+      .select3,
+      .input4,
+      .input5,
+      .radio7,
+      .select8 {
+        grid-column: 1/2;
+        grid-row: 2/3;
+        justify-self: center;
+      }
+      .label6 {
+        grid-column: 1/3;
+        grid-row: 1/2;
+        justify-self: center;
+        text-align: center;
+        margin-bottom: 3px;
+      }
+      .select6 {
+        grid-column: 1/2;
+        grid-row: 2/3;
+        justify-self: center;
+        width: 120px;
+        margin-right: 5px;
+      }
+      .input6 {
+        grid-column: 2/3;
+        grid-row: 2/3;
+        justify-self: center;
+        width: 200px;
+        margin-left: 5px;
+      }
+      .submit {
+        font-family: "Inconsolata", monospace;
+        font-weight: 500;
+        font-size: 22px;
+        text-transform: uppercase;
+        width: 130px;
+        height: 35px;
+        border-radius: 0%;
+        border: 0;
+        background-color: var(--white);
+        color: var(--black);
+        margin-top: 50px;
+      }
+      .submit:hover {
+        background-color: var(--yellow);
       }
     </style>
   </form>
