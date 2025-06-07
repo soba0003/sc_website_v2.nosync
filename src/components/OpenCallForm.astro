@@ -4,7 +4,20 @@
   <!-- email gør at der skal være et @ når man udfylder -->
   <!-- <input type="tel" /> tel bruges til telefonnumre -->
   <!-- <input type="date" /> date bruges til datoer/fødselsdage m.m. -->
-  <form class="flex">
+
+  <!-- ved at bruge netlify-honetpot=bot-field, kan vi undgå at bots for adgang til formen -->
+  <!-- ved at bruge data-netlify=true, kan netlify få adgang til de data der bliver send med formen -->
+  <form
+    class="flex"
+    name="opencall"
+    method="post"
+    netlify-honeypot="bot-field"
+    data-netlify="true"
+  >
+    <!-- så bots ikke udfylder formen, men er skjult fra siden, så det ikke påvirker brugeren -->
+    <div hidden aria-hidden="true">
+      <label>Don't fill out this input. <input name="bot-field" /></label>
+    </div>
     <div class="grid">
       <label class="label1" for="fullname">FULL NAME</label>
       <input
